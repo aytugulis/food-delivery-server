@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import foodRouter from "./routers/foodRouter.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 
@@ -14,6 +15,9 @@ app.use(express.json());
 
 // Error Handling
 app.use(errorHandler);
+
+// Adding cors permission
+app.use(cors());
 
 // Routers
 app.use("/food", foodRouter);
